@@ -1,0 +1,11 @@
+@use "colors" as *;
+
+@mixin bg-style {
+  background-color: white;
+  border: solid 1px $bg-color;
+
+  @media (min-width: 800px) {
+    border-radius: 0.5em;
+    box-shadow: 2em, 1em, 1em, rgba($color: red, $alpha: 1);
+  }
+}
