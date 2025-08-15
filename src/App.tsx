@@ -1,3 +1,3 @@
 export function App() {
-  return <>hola</>;
+  return <>T2-DEW - Luis Angel Salcedo</>;
 }
