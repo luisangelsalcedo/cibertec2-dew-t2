@@ -1,0 +1,27 @@
+@use "@styles/vars" as *;
+
+.footer {
+  background-color: $footer-color;
+  color: white;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .redes {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    a {
+      width: fit-content; /* Ajusta el ancho al contenido */
+      height: fit-content;
+      svg {
+        width: 1.2em;
+        height: 1.2em;
+      }
+    }
+  }
+}

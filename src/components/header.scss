@@ -1,0 +1,43 @@
+@use "@styles/vars" as *;
+
+.header {
+  width: 100%;
+  display: block;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  box-shadow: 0 0 1em rgba($color: $default, $alpha: 0.3);
+
+  &-top {
+    background-color: $header-color;
+    padding: 1em;
+    border-bottom: solid 0.1em rgba($color: $default, $alpha: 0.3);
+
+    .container {
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 550px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &-bottom {
+    background-color: white;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
+
+  &-center {
+    width: 100%;
+    max-width: 500px;
+  }
+}
