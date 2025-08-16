@@ -1,6 +1,6 @@
 import { GhIcon, InIcon } from "@/assets/svgs";
+import { Container } from "../Container";
 import "./footer.scss";
-import { Container } from "./Container";
 
 export function Footer() {
   return (
