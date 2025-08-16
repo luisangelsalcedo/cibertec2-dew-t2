@@ -24,3 +24,8 @@ export interface Product {
   tipo: "ENVÍO GRATIS" | "Patrocinado" | "REACONDICIONADO" | null;
   src: string;
 }
+
+export interface ShoppingCarItem {
+  count: number;
+  product: Product;
+}

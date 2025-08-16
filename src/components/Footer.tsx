@@ -1,10 +1,11 @@
 import { GhIcon, InIcon } from "@/assets/svgs";
 import "./footer.scss";
+import { Container } from "./Container";
 
 export function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
+      <Container>
         <div>Luis Angel Salcedo Gavidia | 2025</div>
         <div className="redes">
           <a
@@ -24,7 +25,7 @@ export function Footer() {
             <GhIcon />
           </a>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

@@ -364,7 +364,7 @@ export const productList: Product[] = [
     src: "https://media.falabella.com.pe/falabellaPE/883407013_1/width=240,height=240,quality=70,format=webp,fit=pad",
   },
   {
-    id: "17924885_1",
+    id: "17924885_12",
     marca: "APPLE",
     nombre: 'Macbook Air 13" Chip M1 8gb Ram 256 Gb Ssd - Space Gray',
     vendedor: "Falabella",

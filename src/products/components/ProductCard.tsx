@@ -1,10 +1,12 @@
 import type { Product } from "@/types";
+import { useEffect } from "react";
 
 interface Props {
   product: Product;
+  handler: (product: Product) => void;
 }
 
-export function ProductCard({ product }: Props) {
+export function ProductCard({ product, handler }: Props) {
   const {
     marca,
     nombre,
@@ -14,6 +16,15 @@ export function ProductCard({ product }: Props) {
     precioOriginal,
     src,
   } = product;
+
+  function handlerClick(): void {
+    handler(product);
+  }
+
+  useEffect(() => {
+    console.log("card");
+  }, []);
+
   return (
     <article className="card">
       <div className="card-container">
@@ -37,7 +48,9 @@ export function ProductCard({ product }: Props) {
             <img src={src} alt={nombre} />
           </div>
           {/* createButton */}
-          <button className="btn">Agregar al Carro</button>
+          <button className="btn" onClick={() => handlerClick()}>
+            Agregar al Carro
+          </button>
         </div>
       </div>
     </article>
