@@ -1,9 +1,9 @@
 import { SagaLogo, ShoppingcartIcon } from "@/assets/svgs";
 import { ProductSearch } from "@/products/components/";
-import { LimitSelect } from "./LimitSelect";
-import { Clock } from "./Clock";
+import { LimitSelect } from "../LimitSelect";
+import { Clock } from "../Clock";
+import { Container } from "../Container";
 import "./header.scss";
-import { Container } from "./Container";
 
 interface Props {
   totalProductCount: number;
