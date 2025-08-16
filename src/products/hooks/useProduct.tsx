@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useProductStore } from "../store/product.store";
-import { productList } from "@/data/products";
+import { productsData } from "@/data/productsData";
 
 export function useProduct() {
   const products = useProductStore((state) => state.products);
@@ -9,7 +9,7 @@ export function useProduct() {
   const limitValue = useProductStore((state) => state.limitValue);
 
   useEffect(() => {
-    setProducts(productList);
+    setProducts(productsData);
     console.log("card1");
   }, [setProducts]);
 

@@ -1,4 +1,4 @@
-import { productList } from "@/data/products";
+import { productsData } from "@/data/productsData";
 import type { Product } from "@/types";
 import { create } from "zustand";
 
@@ -13,7 +13,7 @@ interface ProductStore {
 }
 
 export const useProductStore = create<ProductStore>()((set) => ({
-  products: productList,
+  products: productsData,
   searchValue: "",
   limitValue: "12",
   setProducts: (products) => set(() => ({ products })),
