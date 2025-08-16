@@ -1,19 +1,18 @@
 import { SearchIcon } from "@/assets/svgs";
+import { useProductStore } from "../store/product.store";
 
-interface Props {
-  value: string;
-  handler: (value: string) => void;
-}
+export function ProductSearch() {
+  const searchValue = useProductStore((state) => state.searchValue);
+  const setSearchValue = useProductStore((state) => state.setSearchValue);
 
-export function ProductSearch({ value, handler }: Props) {
   return (
     <div className="search">
       <input
         type="text"
         id="searchInput"
         placeholder="Buscar productos..."
-        onChange={(e) => handler(e.target.value)}
-        value={value}
+        onChange={(e) => setSearchValue(e.target.value)}
+        value={searchValue}
       />
       <SearchIcon />
     </div>

@@ -1,6 +1,5 @@
 import type { Product, ShoppingCarItem } from "./types";
 import { useEffect, useState } from "react";
-import { productList } from "./data/products";
 import {
   Header,
   Footer,
@@ -10,31 +9,18 @@ import {
 } from "./components";
 
 import { ProductGrid } from "./products/components/ProductGrid";
+import { useProduct } from "./products/hooks/useProduct";
 
 export function App() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [searchValue, setSearchValue] = useState("");
-  const [limitValue, setLimitValue] = useState("12");
+  const { productsToDisplay } = useProduct();
   const [totalProductCount, setTotalProductCount] = useState(0);
   const [shoppingCarList, setShoppingCarList] = useState<ShoppingCarItem[]>([]);
-
-  useEffect(() => {
-    setProducts(productList);
-    console.log("card1");
-  }, []);
 
   useEffect(() => {
     setTotalProductCount(
       shoppingCarList.reduce((accumulator, item) => accumulator + item.count, 0)
     );
   }, [shoppingCarList]);
-
-  const handleSearchInput = (value: string) => {
-    setSearchValue(value);
-  };
-  const handleLimitSelect = (value: string) => {
-    setLimitValue(value);
-  };
 
   const addProductoToShoppingCar = (product: Product) => {
     const index = shoppingCarList.findIndex(
@@ -51,26 +37,9 @@ export function App() {
     }
   };
 
-  const filteredList = products.filter(
-    (product) =>
-      product.nombre.toLowerCase().trim().includes(searchValue) ||
-      product.marca.toLowerCase().trim().includes(searchValue)
-  );
-
-  const productsToDisplay =
-    limitValue === "all"
-      ? filteredList
-      : filteredList.slice(0, Number(limitValue));
-
   return (
     <>
-      <Header
-        searchValue={searchValue}
-        searchHandler={handleSearchInput}
-        limitValue={limitValue}
-        limitHandler={handleLimitSelect}
-        totalProductCount={totalProductCount}
-      />
+      <Header totalProductCount={totalProductCount} />
       <main>
         <Container>
           <MainTitle>

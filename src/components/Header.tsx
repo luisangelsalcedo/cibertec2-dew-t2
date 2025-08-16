@@ -6,20 +6,10 @@ import "./header.scss";
 import { Container } from "./Container";
 
 interface Props {
-  searchValue: string;
-  limitValue: string;
-  searchHandler: (value: string) => void;
-  limitHandler: (value: string) => void;
   totalProductCount: number;
 }
 
-export function Header({
-  searchValue,
-  limitValue,
-  searchHandler,
-  limitHandler,
-  totalProductCount,
-}: Props) {
+export function Header({ totalProductCount }: Props) {
   return (
     <header className="header">
       <div className="header-top">
@@ -30,7 +20,7 @@ export function Header({
             </div>
           </div>
           <div className="header-center">
-            <ProductSearch value={searchValue} handler={searchHandler} />
+            <ProductSearch />
           </div>
           <div className="header-right">
             <button id="shoppingCarButton" className="shoppingCarButton">
@@ -42,7 +32,7 @@ export function Header({
       </div>
       <div className="header-bottom">
         <Container>
-          <LimitSelect value={limitValue} handler={limitHandler} />
+          <LimitSelect />
           <Clock />
         </Container>
       </div>

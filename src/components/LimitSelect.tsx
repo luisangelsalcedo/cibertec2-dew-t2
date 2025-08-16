@@ -1,15 +1,15 @@
-interface Props {
-  value: string;
-  handler: (value: string) => void;
-}
+import { useProductStore } from "@/products/store/product.store";
 
-export function LimitSelect({ value, handler }: Props) {
+export function LimitSelect() {
+  const limitValue = useProductStore((state) => state.limitValue);
+  const setLimitValue = useProductStore((state) => state.setLimitValue);
+
   return (
     <select
       id="limitSelect"
       className="limitSelect"
-      value={value}
-      onChange={(e) => handler(e.target.value)}
+      value={limitValue}
+      onChange={(e) => setLimitValue(e.target.value)}
     >
       <option value="all">Todos</option>
       <option value="12">12 items</option>
