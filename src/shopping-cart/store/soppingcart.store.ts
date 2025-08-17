@@ -5,12 +5,12 @@ interface ShoppingCartStore {
   shoppingCarList: ShoppingCarItem[];
   addProductToShoppingCart: (product: Product) => void;
   totalProductCount: number;
+  removeProductToShoppingCart: (index: number) => void;
 }
 
 export const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
   shoppingCarList: [],
   totalProductCount: 0,
-
   addProductToShoppingCart: (product: Product) =>
     set((state) => {
       const currentList = state.shoppingCarList;
@@ -28,6 +28,18 @@ export const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
           count: newList[index].count + 1,
         };
       }
+
+      const totalProductCount = newList.reduce(
+        (sum, element) => sum + element.count,
+        0
+      );
+
+      return { shoppingCarList: newList, totalProductCount };
+    }),
+  removeProductToShoppingCart: (index: number) =>
+    set((state) => {
+      const newList = [...state.shoppingCarList];
+      newList.splice(index, 1);
 
       const totalProductCount = newList.reduce(
         (sum, element) => sum + element.count,

@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { ShoppingcartIcon } from "@/assets/svgs";
 import { usePopup } from "@/popup/hooks/usePopup";
-import { memo } from "react";
+import { ShoppingCartList } from "./ShoppingCartList";
 
 interface Props {
   count: number;
@@ -13,7 +14,7 @@ export const ShoppingCartButton = memo(({ count }: Props) => {
     <button
       id="shoppingCarButton"
       className="shoppingCarButton"
-      onClick={() => openModal(<h1>Modal</h1>)}
+      onClick={() => openModal(<ShoppingCartList />)}
     >
       <ShoppingcartIcon />
       <span>{count}</span>
