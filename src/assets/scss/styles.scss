@@ -246,50 +246,6 @@ main {
   }
 }
 
-.popup {
-  position: fixed;
-  max-width: 50em;
-  max-height: 35em;
-  inset: 0;
-  margin: auto;
-  z-index: 50;
-  border: 0;
-  border-radius: 1.5em;
-  box-shadow: 0 0 1em rgba($color: $default, $alpha: 0.3);
-  overflow: hidden;
-
-  & > form > button {
-    padding: 0.5em;
-    width: 2em;
-    height: 2em;
-    background-color: $btn-color;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 1.1em;
-    position: absolute;
-    z-index: 50;
-    right: 0.3em;
-    top: 0.3em;
-
-    &:hover {
-      background-color: $footer-color;
-    }
-  }
-
-  .container {
-    padding: 3em 2em 2em 2em;
-    overflow: auto;
-    max-height: 35em;
-  }
-}
-
-::backdrop {
-  backdrop-filter: blur(5px);
-}
-
 .shoppingCar {
   .delete {
     background-color: $red;
