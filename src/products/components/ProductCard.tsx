@@ -1,5 +1,5 @@
 import type { Product } from "@/types";
-import { memo, useEffect } from "react";
+import { memo } from "react";
 
 interface Props {
   product: Product;
@@ -16,12 +16,6 @@ export const ProductCard = memo(({ product, handlerClick }: Props) => {
     precioOriginal,
     src,
   } = product;
-
-  console.log("rerender");
-
-  useEffect(() => {
-    console.log("✅ ProductCard MONTADO o ACTUALIZADO");
-  }, [product]);
 
   return (
     <article className="card">

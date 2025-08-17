@@ -1,12 +1,15 @@
 import { ShoppingcartIcon } from "@/assets/svgs";
-import { useShoppingCart } from "@/shopping-cart/hooks/useShoppingcart";
+import { memo } from "react";
 
-export function ShoppingCartButton() {
-  const { totalProductCount } = useShoppingCart();
+interface Props {
+  count: number;
+}
+
+export const ShoppingCartButton = memo(({ count }: Props) => {
   return (
     <button id="shoppingCarButton" className="shoppingCarButton">
       <ShoppingcartIcon />
-      <span>{totalProductCount}</span>
+      <span>{count}</span>
     </button>
   );
-}
+});

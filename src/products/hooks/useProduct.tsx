@@ -10,7 +10,6 @@ export function useProduct() {
 
   useEffect(() => {
     setProducts(productsData);
-    console.log("card1");
   }, [setProducts]);
 
   const filteredList = useMemo(
