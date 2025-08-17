@@ -1,69 +1,55 @@
-# React + TypeScript + Vite
+# cibertec2-dew-t2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una implementación básica de un **carrito de compras** desarrollado con **React**, usando tecnologías como **TypeScript** y **Zustand**, como parte del curso de Desarrollo de Entornos Web.
 
-Currently, two official plugins are available:
+![Interfaz Principal](screenshots/cart-1.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Interfaz Carrito](screenshots/cart-2.jpg)
 
-## Expanding the ESLint configuration
+## 📦 Requisitos previos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Asegúrate de tener instalado:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- [pnpm](https://pnpm.io/es/installation) (gestor de paquetes)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+> 💡 Si no tienes `pnpm`, puedes usar npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🔧 Pasos para ejecutar el proyecto
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/luisangelsalcedo/cibertec2-dew-t2.git
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Entrar al directorio del proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+cd cibertec2-dew-t2
+```
+
+### 3. Instalar las dependencias con pnpm
+
+```
+pnpm install
+
+```
+
+### 4. Iniciar el servidor de desarrollo
+
+```
+pnpm dev
+```
+
+## 🌐 Tecnologías utilizadas
+
+- React + Vite
+- TypeScript
+- Zustand
+- SCSS
+- React Context
+- pnpm
