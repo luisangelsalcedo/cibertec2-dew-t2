@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useProductStore } from "../store/product.store";
 import { productsData } from "@/data/productsData";
 
@@ -13,10 +13,14 @@ export function useProduct() {
     console.log("card1");
   }, [setProducts]);
 
-  const filteredList = products.filter(
-    (product) =>
-      product.nombre.toLowerCase().trim().includes(searchValue) ||
-      product.marca.toLowerCase().trim().includes(searchValue)
+  const filteredList = useMemo(
+    () =>
+      products.filter(
+        (product) =>
+          product.nombre.toLowerCase().trim().includes(searchValue) ||
+          product.marca.toLowerCase().trim().includes(searchValue)
+      ),
+    [products, searchValue]
   );
 
   const productsToDisplay =
