@@ -1,3 +1,2 @@
 export { ProductSearch } from "./ProductSearch";
-
-export { ProductCard } from "./ProductCard";
+export { ProductGrid } from "./ProductGrid";

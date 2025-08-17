@@ -6,7 +6,7 @@ import {
   Container,
 } from "./components";
 
-import { ProductGrid } from "./products/components/ProductGrid";
+import { ProductGrid } from "./products/components/";
 
 export function App() {
   return (
