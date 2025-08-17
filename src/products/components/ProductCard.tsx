@@ -1,12 +1,12 @@
 import type { Product } from "@/types";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 
 interface Props {
   product: Product;
-  handler: (product: Product) => void;
+  handlerClick: (product: Product) => void;
 }
 
-export function ProductCard({ product, handler }: Props) {
+export const ProductCard = memo(({ product, handlerClick }: Props) => {
   const {
     marca,
     nombre,
@@ -17,25 +17,24 @@ export function ProductCard({ product, handler }: Props) {
     src,
   } = product;
 
-  function handlerClick(): void {
-    handler(product);
-  }
+  console.log("rerender");
 
   useEffect(() => {
-    console.log("card");
-  }, []);
+    console.log("✅ ProductCard MONTADO o ACTUALIZADO");
+  }, [product]);
 
   return (
     <article className="card">
       <div className="card-container">
+        <div className="card-image">
+          <img src={src} alt={nombre} />
+        </div>
         <div className="card-info">
-          {/* createTitle */}
           <header>
             <h4>{marca}</h4>
             <h3>{nombre}</h3>
             <small>Vendido por {vendedor}</small>
           </header>
-          {/* createPrice */}
           <div className="card-price">
             <p>
               S/. {precioActual}
@@ -43,16 +42,11 @@ export function ProductCard({ product, handler }: Props) {
             </p>
             <p>S/. {precioOriginal}</p>
           </div>
-          {/* createImage */}
-          <div className="card-image">
-            <img src={src} alt={nombre} />
-          </div>
-          {/* createButton */}
-          <button className="btn" onClick={() => handlerClick()}>
-            Agregar al Carro
-          </button>
         </div>
       </div>
+      <button className="btn" onClick={() => handlerClick(product)}>
+        Agregar al Carro
+      </button>
     </article>
   );
-}
+});

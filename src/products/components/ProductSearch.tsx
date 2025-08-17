@@ -1,7 +1,8 @@
 import { SearchIcon } from "@/assets/svgs";
 import { useProductStore } from "../store/product.store";
+import { memo } from "react";
 
-export function ProductSearch() {
+export const ProductSearch = memo(() => {
   const searchValue = useProductStore((state) => state.searchValue);
   const setSearchValue = useProductStore((state) => state.setSearchValue);
 
@@ -17,4 +18,4 @@ export function ProductSearch() {
       <SearchIcon />
     </div>
   );
-}
+});

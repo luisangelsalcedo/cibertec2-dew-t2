@@ -1,23 +1,31 @@
-import type { Product } from "@/types";
 import { ProductCard } from "./ProductCard";
+import { useProduct } from "../hooks/useProduct";
+import { useShoppingCart } from "@/shopping-cart/hooks/useShoppingcart";
+import { memo, useCallback } from "react";
+import type { Product } from "@/types";
 
-interface Props {
-  data: Product[];
-  handleClick: (product: Product) => void;
-}
+export const ProductGrid = memo(() => {
+  const { productsToDisplay } = useProduct();
+  const { addProductToShoppingCart } = useShoppingCart();
 
-export function ProductGrid({ data, handleClick }: Props) {
+  const addProduct = useCallback(
+    (product: Product) => {
+      addProductToShoppingCart(product);
+    },
+    [addProductToShoppingCart]
+  );
+
   return (
     <div className="products">
-      {data.length <= 0
+      {productsToDisplay.length <= 0
         ? "No se encontraron productos disponibles"
-        : data.map((product) => (
+        : productsToDisplay.map((product) => (
             <ProductCard
-              product={product}
               key={product.id}
-              handler={handleClick}
+              product={product}
+              handlerClick={addProduct}
             ></ProductCard>
           ))}
     </div>
   );
-}
+});
